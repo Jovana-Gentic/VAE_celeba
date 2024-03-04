@@ -34,6 +34,12 @@ To help the model avoid a posterior collapse, we warmup the `KL_div` by linearly
 <div align="center"><img src="./images/losses.png"></div>
 
 # Generate #
-Pick encoder distribution temperature (z_temp) and decoder distribution temperature (x_temp) to generate from the prior,
+Pick prior distribution temperature (z_temp) and decoder distribution temperature (x_temp) to generate new images from prior distribution,
 `pictures = model.generate(z_temp=1., x_temp=0.3)`
+
+z_temp: float, defines the temperature multiplier of the encoder stddev. 
+            Smaller z_temp makes the generated samples less diverse and more generic
+            
+x_temp: float, defines the temperature multiplier of the decoder stddev.
+            Smaller x_temp makes the generated samples smoother, and loses small degree of information.
 <div align="center"><img src="./images/generated_imgs (1).png"></div>
